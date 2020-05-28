@@ -56,4 +56,4 @@ class Solutions(models.Model):
     url = models.URLField(max_length=300, validators=[validate_url])
 
     def __str__(self):
-        return 'soluton for ' + str(self.taks)
+        return 'soluton for ' + str(self.task)

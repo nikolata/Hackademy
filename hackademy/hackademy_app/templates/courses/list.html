@@ -1,0 +1,51 @@
+{% extends "courses/base.html" %} {% block content %}
+<a href="{% url 'hackademy_app:courses:create' %}">Add new</a>
+
+{% if courses %}
+<!-- <ul>
+  {% for course in courses %}
+  <li><a href="{% url 'hackademy_app:courses:detail' course.id %}">{{ course.name }}</a></li>
+  {% endfor %}
+</ul> -->
+<table style='width: 100%'>
+	<tr>
+		<th>
+			Course name
+		</th>
+		<th>
+			Description
+		</th>
+		<th>
+			Start Date
+		</th>
+		<th>
+			End Date
+		</th>
+		<th>
+			Duration
+		</th>
+	</tr>
+	{% for course in courses %}
+	<tr>
+		<td><a href="{% url 'hackademy_app:courses:detail' course.id %}">
+				{{ course.name }}
+			</a>
+		</td>
+		<td>
+			{{ course.description }}
+		</td>
+		<td>
+			{{ course.start_date}}
+		</td>
+		<td>
+			{{ course.end_date }}
+		</td>
+		<td>
+			{{ course.duration }}
+		</td>
+	</tr>
+	{% endfor %}
+</table>
+{% else %}
+<p><strong>No courses yet.</strong></p>
+{% endif %} {% endblock %}

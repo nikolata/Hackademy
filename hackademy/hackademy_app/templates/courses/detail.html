@@ -1,0 +1,11 @@
+{% extends "courses/base.html" %} {% block content %}
+<h2>{{ course.name }}</h2>
+<ul>
+  {% for lecture in lectures %}
+<!--   <li><a href="{% url 'hackademy_app:courses:detail' course.id %}">{{ course.name }}</a></li>
+ -->  
+	<li>{{ lecture.name }}</li>
+
+ {% endfor %}
+</ul>
+{% endblock %}

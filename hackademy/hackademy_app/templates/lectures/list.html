@@ -1,0 +1,22 @@
+{% extends "courses/base.html" %} {% block content %}
+<a href="{% url 'hackademy_app:lectures:create' %}">Add new</a>
+
+{% if courses %}
+<ul>
+  {% for course in courses %}
+  <li><a href="{% url 'hackademy_app:courses:detail' course.id %}">{{ course.name }}</a></li>
+  	<ul>
+  		{% for lecture in lectures %}
+  			{% if course.id == lecture.course %}
+		  		<li>
+		  			{{ lecture.name }}	
+		  		</li>
+		  	{% endif%}
+  		{% endfor %}
+  	</ul>
+  {% endfor %}
+</ul>
+{% else %}
+<p><strong>No courses yet.</strong></p>
+{% endif %}
+{% endblock %}
