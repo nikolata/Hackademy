@@ -1,5 +1,12 @@
-{% extends "courses/base.html" %} {% block content %}
+{% extends "courses/base.html" %} 
+{% load static %}
+{% block content %}
+
 <a href="{% url 'hackademy_app:courses:create' %}">Add new</a>
+<head>
+	<title>Courses</title>
+	<link rel="stylesheet" href="{% static 'css/courses/detail.css' %}">
+</head>
 
 {% if courses %}
 <!-- <ul>
@@ -27,22 +34,11 @@
 	</tr>
 	{% for course in courses %}
 	<tr>
-		<td><a href="{% url 'hackademy_app:courses:detail' course.id %}">
-				{{ course.name }}
-			</a>
-		</td>
-		<td>
-			{{ course.description }}
-		</td>
-		<td>
-			{{ course.start_date}}
-		</td>
-		<td>
-			{{ course.end_date }}
-		</td>
-		<td>
-			{{ course.duration }}
-		</td>
+		<td><a href="{% url 'hackademy_app:courses:detail' course.id %}">{{ course.name }}</a></td>
+		<td>{{ course.description }}</td>
+		<td>{{ course.start_date}}</td>
+		<td>{{ course.end_date }}</td>
+		<td>{{ course.duration }}</td>
 	</tr>
 	{% endfor %}
 </table>
