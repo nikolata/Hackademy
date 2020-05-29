@@ -1,4 +1,5 @@
-{% extends "courses/base.html" %} {% block content %}
+{% extends "courses/base.html" %} {% load static %} {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css_design/lectures/details.css' %}">
 <a href="{% url 'hackademy_app:lectures:create' %}">Add new lecture</a>
 {% if courses %}
 <ul>

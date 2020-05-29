@@ -1,43 +1,50 @@
-{% extends "courses/base.html" %} {% block content %}
-<table style='width: 100%'>
-	<tr>
-		<th>
-			Lecture id
-		</th>
-		<th>
-			Name
-		</th>
-		<th>
-			Week
-		</th>
-		<th>
-			URL
-		</th>
-		<th>
-			Course
-		</th>
-	</tr>
-	<tr>
-		<td>
-			{{ lecture.lecture_id }}
-		</td>
-		<td>
-			{{ lecture.name}}
-		</td>
-		<td>
-			{{ lecture.week }}
-		</td>
-		<td><a href='lecture.url'></a>
-			{{ lecture.url }}
-		</td>
-		{% for course in coursess %}
-			{% if lecture.course_id == course.id%}
-				<td><a href="{% url 'hackademy_app:courses:detail' course.id %}">
-						{{ course.name }}
-					</a>
+{% extends "courses/base.html" %} {% load static %} {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css_design/lectures/table_test.css' %}">
+
+<div class="container">
+	<table>
+		<thead>
+			<tr>
+				<th>
+					Lecture id
+				</th>
+				<th>
+					Name
+				</th>
+				<th>
+					Week
+				</th>
+				<th>
+					URL
+				</th>
+				<th>
+					Course
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					{{ lecture.lecture_id }}
 				</td>
-			{% endif %}
-		{% endfor %}
-	</tr>
-</table>
+				<td>
+					{{ lecture.name}}
+				</td>
+				<td>
+					{{ lecture.week }}
+				</td>
+				<td><a href='lecture.url'></a>
+					{{ lecture.url }}
+				</td>
+				{% for course in coursess %}
+					{% if lecture.course_id == course.id%}
+						<td><a href="{% url 'hackademy_app:courses:detail' course.id %}">
+								{{ course.name }}
+							</a>
+						</td>
+					{% endif %}
+				{% endfor %}
+			</tr>
+		</tbody>
+	</table>
 {% endblock %}

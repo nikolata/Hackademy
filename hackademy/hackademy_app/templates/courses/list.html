@@ -3,10 +3,8 @@
 {% block content %}
 
 <a href="{% url 'hackademy_app:courses:create' %}">Add new</a>
-<head>
-	<title>Courses</title>
-	<link rel="stylesheet" href="{% static 'css/courses/detail.css' %}">
-</head>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css_design/courses/table_test.css' %}">
 
 {% if courses %}
 <!-- <ul>
@@ -14,34 +12,41 @@
   <li><a href="{% url 'hackademy_app:courses:detail' course.id %}">{{ course.name }}</a></li>
   {% endfor %}
 </ul> -->
-<table style='width: 100%'>
-	<tr>
-		<th>
-			Course name
-		</th>
-		<th>
-			Description
-		</th>
-		<th>
-			Start Date
-		</th>
-		<th>
-			End Date
-		</th>
-		<th>
-			Duration
-		</th>
-	</tr>
-	{% for course in courses %}
-	<tr>
-		<td><a href="{% url 'hackademy_app:courses:detail' course.id %}">{{ course.name }}</a></td>
-		<td>{{ course.description }}</td>
-		<td>{{ course.start_date}}</td>
-		<td>{{ course.end_date }}</td>
-		<td>{{ course.duration }}</td>
-	</tr>
-	{% endfor %}
-</table>
+<div class="container">
+
+	<table style='width: 100%'>
+		<thead>
+			<tr>
+				<th>
+					Course name
+				</th>
+				<th>
+					Description
+				</th>
+				<th>
+					Start Date
+				</th>
+				<th>
+					End Date
+				</th>
+				<th>
+					Duration
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for course in courses %}
+			<tr>
+				<td><a href="{% url 'hackademy_app:courses:detail' course.id %}">{{ course.name }}</a></td>
+				<td>{{ course.description }}</td>
+				<td>{{ course.start_date}}</td>
+				<td>{{ course.end_date }}</td>
+				<td>{{ course.duration }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
 {% else %}
 <p><strong>No courses yet.</strong></p>
 {% endif %} {% endblock %}

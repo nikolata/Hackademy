@@ -1,4 +1,6 @@
 <h1>Welcome to Hackademy!</h1>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css_design/home/home.css' %}">
 
 <ul>
   <li><a href="{% url 'hackademy_app:courses:list' %}">Courses</a></li>

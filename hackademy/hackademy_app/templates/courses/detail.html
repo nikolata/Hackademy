@@ -1,4 +1,5 @@
-{% extends "courses/base.html" %}  {% block content %}
+{% extends "courses/base.html" %} {% load static %} {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css_design/courses/detail.css' %}">
 
 <h2>{{ course.name }}</h2>
 <ul>
